@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Cadastro</title>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body>
+        <div>Cadastrar nova utilizacao veiculo</div>
+
+        <form action="#" th:action="@{/sav/utilizacaoveiculo/salvar}" method="post" th:object="${utilizacaoveiculoAtual}">
+            <p>Trajeto : <input type="text" th:field="*{trajeto}" ></p>
+            <p>Justificativa : <input type="text" th:field="*{justificativa}" ></p>
+
+
+            <p>Veiculo : <select th:field="*{veiculo}" >
+                    <option th:each= "v : ${allVeiculos}" th:value="${v.id}" th:text="${v.placa}" />
+
+                </select>                    </p>
+       
+
+
+            <p>Solicitante : <select  th:field="*{solicitante}">
+                    <option th:each= "f : ${allFuncionarios}" th:value="${f.id}" th:text="${f.nome}" />
+
+                </select>         
+            </p>
+            <p>Despachante : <select  th:field="*{despachante}">
+                    <option th:each= "f : ${allFuncionarios}" th:value="${f.id}" th:text="${f.nome}" />
+
+                </select>            
+            </p>
+            <p>Motorista : <select  th:field="*{motorista}">
+                    <option th:each= "f : ${allFuncionarios}" th:value="${f.id}" th:text="${f.nome}" />
+
+                </select>                    </p>
+
+
+
+
+
+
+            <input type="submit" value="salvar"/>
+
+        </form>
+
+    </body>
+</html>

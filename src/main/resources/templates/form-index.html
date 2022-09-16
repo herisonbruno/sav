@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Bem vindo ao SAV</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>Utilização de Veiculos</div>
+        <table border="1">
+            <tr>
+                <td>Codigo</td>
+                <td>Trajeto</td>
+                <td>Justificativa</td>
+                <td>Veiculo</td>
+                <td>Funcionario</td>
+            </tr>
+            <tr th:each="uv : ${allUtilizacaoVeiculo}">
+                <td>[[${uv.id}]]</td>
+                <td>[[${uv.trajeto}]]</td>
+                <td>[[${uv.justificativa}]]</td>
+                <td>[[${uv.veiculo.modelo}]]</td>
+                <td>[[${uv.funcionario.nome}]]</td>
+                
+            </tr>
+
+
+        </table>
+
+    </body>
+</html>

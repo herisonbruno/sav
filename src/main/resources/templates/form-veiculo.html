@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns="http://www.w3.org/1999/xhtml"
+                   xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Cadastro</title>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body>
+        <div>Cadastrar novo veiculo</div>
+        
+        <form action="#" th:action="@{/sav/veiculo/salvar}" method="post" th:object="${veiculoAtual}">
+            <p>Placa : <input type="text" th:field="*{placa}" ></p>
+            <p>Marca : <input type="text" th:field="*{marca}" ></p>
+            <p>Modelo :<input type="text"  th:field="*{modelo}" ></p>
+            <p>Ano Fabricacao : <input type="number"  th:field="*{anofabricacao}" ></p>
+            <input type="submit" value="salvar"/>
+            
+        </form>
+        
+    </body>
+</html>
