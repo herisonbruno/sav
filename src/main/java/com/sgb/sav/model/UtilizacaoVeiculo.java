@@ -5,6 +5,7 @@
 package com.sgb.sav.model;
 
 import java.io.Serializable;
+import java.util.Objects;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -94,5 +95,43 @@ public class UtilizacaoVeiculo implements Serializable {
     public void setMotorista(Funcionario motorista) {
         this.motorista = motorista;
     }
+
+    public UtilizacaoVeiculo() {
+        super();
+    }
+
+    public UtilizacaoVeiculo(Long id, String trajeto, String justificativa, Veiculo veiculo, Funcionario solicitante, Funcionario despachante, Funcionario motorista) {
+        this.id = id;
+        this.trajeto = trajeto;
+        this.justificativa = justificativa;
+        this.veiculo = veiculo;
+        this.solicitante = solicitante;
+        this.despachante = despachante;
+        this.motorista = motorista;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 59 * hash + Objects.hashCode(this.id);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final UtilizacaoVeiculo other = (UtilizacaoVeiculo) obj;
+        return Objects.equals(this.id, other.id);
+    }
+    
+    
 
 }
